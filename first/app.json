@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/info/info",
+    "pages/tab/tab",
+    "pages/index/index",
+    "pages/model/a",
+    "pages/firstpage/first",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"normal",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "贝壳新房",
+    "navigationBarTextStyle":"black"
+  }
+}

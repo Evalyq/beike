@@ -1,0 +1,8 @@
+<view>
+   <view class='tabtitle'>
+      <view wx:for="{{all}}" wx:key="" bindtap='addTitle' data-selected="{{item.selected}}"  data-times="{{item.times}}" data-index="{{index}}" class="{{ item.selected ? 'sel':''}}">{{item.day}}</view>
+   </view>
+   <view class='tabcon'>
+     <view wx:for="{{nowlist}}" data-allow="{{item.allow}}" class="{{ item.allow == 1 ? 'sel':''}}" data-index="{{index}}" bindtap='addcon'>{{item.time}}</view>
+   </view>
+</view>

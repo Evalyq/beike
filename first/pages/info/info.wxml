@@ -1,0 +1,166 @@
+<view class='wrap'>
+  <view class='infobox'>
+    <view class='title-info'>
+      <text class='title'>{{mainData.data.house_info.title}}</text><text class='shop'>商铺</text><text class='onsale'>在售</text>
+    </view>
+    <view class='other-title'>别名：{{mainData.data.house_info.seTitle}}</view>
+    <view class='img-wrap clearfix'>
+        <view  class='imgitem' wx:for="{{mainData.data.house_info.images}}" wx:key=""><image src="{{item.image_path}}"></image>
+        </view>
+    <view class='mask'>
+      <view class="maskinfo">
+          <view class='masknum'>+78</view>
+          <view>查看更多</view>
+      </view>
+    </view>
+    </view>
+    <view class='listwrap'>
+        <view class='list-item'>
+          <view class='type'>价格</view>
+          <view class='red'>{{mainData.data.house_info.price}}万</view>
+        </view>
+        <view class='list-item'>
+          <view class='type'>价格</view>
+          <view class='red'>{{mainData.data.house_info.type}}</view>
+        </view>
+        <view class='list-item'>
+          <view class='type'>价格</view>
+          <view class='red'>{{mainData.data.house_info.area}}</view>
+        </view>
+    </view>
+    <view class='kp'>开盘时间：<text>{{mainData.data.house_info.open_time}}</text> <view class='next'><image src="/images/more@2x.png"></image></view>
+    </view>
+    <view class='kp'>地址: <text>{{mainData.data.house_info.address}}</text><view class='next'><image src="/images/more@2x.png"></image></view></view>
+    <view class='yh clearfix'>
+        <view class='yhicon'><image src="/images/Coupon_icon@2x.png"></image></view><text>全款9.8折，贷款9.9折</text><view class='moreyh'>领优惠</view>
+    </view>
+    <view class='more'>更多房源信息</view>
+  </view>
+  <view class='tabbox'>
+    <view class='tabtitle-box clearfix'>
+      <view wx:for="{{mainData.data.typs_conditions}}" wx:key="" class="{{index==tabActive?'tabtitleactive':''}}" data-index="{{index}}" data-id="{{item.id}}" bindtap='addtabTitle'>{{item.name}}</view>
+    </view>
+    <view class='tabcontent-box'>
+      <view class='tabcontent'>
+        <view class='con-item' wx:for="{{typeData.data.house_lists}}" wx:key="">
+          <view class='item-img'><image src="{{item.image}}"></image></view>
+          <view class='item-info'>
+             <view class='item-title'>
+                <text class='Title'>{{item.title}}</text> <text class='onsale'>在售</text><text class='hot'>热门</text>
+             </view>
+             <view class='area'>建面191㎡/南北向</view>
+             <view class='tabs clearfix'>
+                <view wx:for="{{item.tabs}}" wx:key="">{{item}}</view>
+             </view>
+             <view class='price'>约<text class='pricenum'>{{item.price}}</text>万/套</view>
+          </view> 
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='combox'>
+     <view class='comtitle'>
+        <text class="com-title">用户评论</text><view class='morecom'>更多点评<view class='next'><image src="/images/more@2x.png"></image></view></view>
+     </view>
+     <view class='starbox'>
+        <image src="/images/Star_big_act@2x.png" class='star'></image>
+        <image src="/images/Star_big_act@2x.png" class='star'></image>
+        <image src="/images/Star_big_act@2x.png" class='star'></image>
+        <image src="/images/Star_big_act@2x.png" class='star'></image>
+        <image src="/images/Star_big_act@2x.png" class='star'></image>
+        <text>综合<text class='grade'>4.0</text>分</text>
+     </view>
+     <view class='gradelist clearfix'>
+         <text wx:for="{{mainData.data.comments.tab_score}}" wx:key="" class='gradeitem'>{{item.name}}{{item.score}}</text> 
+     </view>
+     <view class='line'></view>
+     <view class='labels clearfix'>
+        <text class='label labelactive'>购买用户(5)</text> <text class='label'>购买用户(5)</text> <text class='label'>购买用户(5)</text> <text class='label'>购买用户(5)</text> <text class='label'>购买用户(5)</text>
+     </view>
+     <view class='users'>
+       <view class='usecommit' wx:for="{{mainData.data.comments.comment}}" wx:key="">
+        <view class='useinfo'>
+          <image class='useimg' src="{{item.user_image}}"></image>
+          <view class='usebox'>
+             <view class='usename'>{{item.user_name}}</view>
+             <view class='sstarbox'>
+                <image class='sstar'src="/images/Star_small_act@2x.png"></image>
+                <image class='sstar'src="/images/Star_small_act@2x.png"></image>
+                <image class='sstar'src="/images/Star_small_act@2x.png"></image>
+                <image class='sstar'src="/images/Star_small_act@2x.png"></image>
+                <image class='sstar'src="/images/Star_small_act@2x.png"></image>
+                <text wx:for="{{mainData.data.comments.comment.user_score}}" wx:key="">{{item.name}}{{item.score}}</text>
+                <!-- <text>配套3</text>
+                <text>配套3</text> -->
+             </view>
+          </view>
+        </view>
+        <view class='usecon'>{{item.user_comment}}
+        </view>
+        <view class='comall'>全文</view>
+        <view class='comtime'>{{item.create_time}}</view>
+       </view>
+     </view>   
+  </view>
+  <view class='askbox'>
+     <view class='comtitle'>
+        <text class="com-title">买房问大家(1389)</text><view class='morecom'>查看全部<view class='next'><image src="/images/more@2x.png"></image></view></view>
+     </view>
+     <view class='asklist'>
+       <view class='askitem' wx:for="{{mainData.data.questions}}" wx:key="">
+         <image src='/images/ask@2x.png' class='askimg'></image>
+         <view class='askcon'>
+            <view class='question'>{{item.question}}</view>
+            <view class='da'>{{item.attention_num}}人关注 | {{item.answer_num}}个回答</view>
+         </view>
+       </view>
+       <!-- <view class='askitem'>
+         <image src='/images/ask@2x.png' class='askimg'></image>
+         <view class='askcon'>
+            <view class='question'>塔楼，户型是南北通透面积114平使用面积能不有多少？</view>
+            <view class='da'>1,982人关注 | 98个回答</view>
+         </view>
+       </view>
+       <view class='askitem'>
+         <image src='/images/ask@2x.png' class='askimg'></image>
+         <view class='askcon'>
+            <view class='question'>塔楼，户型是南北通透面积114平使用面积能不有多少？</view>
+            <view class='da'>1,982人关注 | 98个回答</view>
+         </view>
+       </view> -->
+     </view>
+  </view>
+  <view class='around'>
+    <view class='comtitle'>
+        <text class="com-title">周边推荐</text><view class='morecom'>更多推荐<view class='next'><image src="/images/more@2x.png"></image></view></view>
+     </view>
+     <view class='aroundlist clearfix'>
+       <view class='arounditem'  wx:for="{{mainData.data.hotlists}}" wx:key="">
+          <image class='aroundimg' src="{{item.image}}"></image>
+          <view class='aroundinfo'>
+            <view class='aroundtitle'>{{item.title}}<text>住宅</text></view>
+            <view class='aroundadd'>{{item.address}}</view>
+            <view class='aroundprice'>均价{{item.uprice}}元/平 </view>
+          </view>
+       </view>
+       <!-- <view class='arounditem'>
+          <image class='aroundimg' src="/images/e.png"></image>
+          <view class='aroundinfo'>
+            <view class='aroundtitle'>西山甲一号山甲山甲…<text>住宅</text></view>
+            <view class='aroundadd'>朝阳 孙河板块</view>
+            <view class='aroundprice'>均价87152元/平 </view>
+          </view>
+       </view>
+       <view class='arounditem'>
+          <image class='aroundimg' src="/images/e.png"></image>
+          <view class='aroundinfo'>
+            <view class='aroundtitle'>西山甲一号山甲山甲…<text>住宅</text></view>
+            <view class='aroundadd'>朝阳 孙河板块</view>
+            <view class='aroundprice'>均价87152元/平 </view>
+          </view>
+       </view> -->
+     </view>
+  </view>
+  <view class='version'>预售许可证： 京房售证字（2017）7号</view>
+  <view class='consult'><text class='free'>免费咨询</text></view>
+</view>

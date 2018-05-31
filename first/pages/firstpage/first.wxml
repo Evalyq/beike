@@ -1,0 +1,9 @@
+<include src="../model/head"/>
+<button type="default" hover-class="other-button-hover"> default </button>
+<button type="primary" bindtap='btnclick'> {{btntext}} </button>
+<text>{{text}}</text>
+<view wx:if="{{show}}">{{text}}</view>
+<view wx:else>{{text2}}</view>
+<view wx:for="{{arry}}" wx:for-item="items">{{index}}-{{items}}</view>
+<import src="../model/foot"/>
+<template is="footer2" data="{{text222:'333333333'}}"/>

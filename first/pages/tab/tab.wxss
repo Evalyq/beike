@@ -1,0 +1,4 @@
+/* pages/tab/tab.wxss */
+.sel{
+  background-color: red;
+}
